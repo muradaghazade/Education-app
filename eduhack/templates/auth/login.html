@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
+<div class="sidenav">
+    <div class="login-main-text text-center">
+        <!-- <h1 class="header logo text-center">Logo</h1> -->
+        <a href="main.html"><img src="{{ url_for('static', filename='images/mini-logo.png') }}" alt="E-Education Logo"
+                class="logo text-center"></a>
+        <p class="footer-header">E-Education</p>
+    </div>
+</div>
+<div class="main">
+    <div class="col-sm-12">
+        <div class="login-form">
+            <form action="" method="post">
+                {{form.csrf_token}}
+                <div class="form-group">
+                    <!-- {{form.email.label}}
+                     -->
+                    <label for="">Username</label>
+                    {{form.email(class_="form-control")}}
+                    {% if form.email.errors %}
+                    <li style="color:red;">{{ form.email.errors.0 }}</li>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{form.password.label}}
+                    {{form.password(class_="form-control")}}
+                    {% if form.password.errors %}
+                    <li style="color:red;">{{ form.password.errors.0 }}</li>
+                    {% endif %}
+                </div>
+                <a href=""><button type="submit" class="btn btn-black">Giriş</button></a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
